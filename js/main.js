@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.8rem;">
+            <div class="modal-challenge-grid">
                 <div style="background: #f8fafc; padding: 1.2rem; border-radius: 10px; border: 1px solid #e2e8f0;">
                     <strong style="color: #0f172a; display: block; margin-bottom: 0.5rem; font-size: 1rem;">🎯 El Desafío</strong>
                     <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${data.challenge}</p>
