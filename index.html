@@ -3,32 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollo de Software a Medida</title>
-    <!-- Google Fonts: Inter para un look moderno y legible -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="TechSolutions - Desarrollo de software rápido, profesional y 100% a medida. Creamos aplicaciones web, móviles y sistemas de gestión de alto rendimiento.">
+    <title>TechSolutions | Desarrollo de Software a Medida, Rápido y Confiable</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <!-- Header / Navbar -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="#">TechSolutions<span>.</span></a>
-            </div>
-            <nav>
+    <header id="header">
+        <div class="container header-container">
+            <a href="#inicio" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="code-2"></i>
+                </div>
+                <span>TechSolutions<span class="logo-dot">.</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
                 <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li><a href="#portafolio">Portafolio</a></li>
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#cotizador" class="nav-link">Cotizador</a></li>
+                    <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+                    <li><a href="#metodologia" class="nav-link">Cómo Trabajamos</a></li>
+                    <li><a href="#sobre-nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
                 </ul>
-                <a href="#contacto" class="btn-primary">Contáctanos</a>
+
+                <div class="nav-cta-mobile">
+                    <a href="#contacto" class="btn btn-primary btn-full">
+                        <span>Iniciar Proyecto</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
             </nav>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+            <div class="header-actions">
+                <a href="#contacto" class="btn btn-primary btn-nav">
+                    <span>Cotizar Proyecto</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
         </div>
     </header>
@@ -36,43 +64,436 @@
     <main>
         <!-- Hero Section -->
         <section id="inicio" class="hero">
-            <div class="container hero-content">
-                <h1>Desarrollo de Software <br>Rápido y a tu Medida</h1>
-                <p>Creamos sistemas eficientes, mantenemos comunicación constante y entregamos resultados profesionales. Transformamos tus ideas en herramientas que impulsan tu negocio.</p>
-                <a href="#portafolio" class="btn-primary btn-large">Ver Nuestro Trabajo</a>
-            </div>
-        </section>
-        
-        <!-- Clients / Carousel Placeholder -->
-        <section class="clients">
-            <div class="container">
-                <p class="section-subtitle">Empresas que confían en nosotros</p>
-                <div class="carousel-track">
-                    <div class="client-logo">Rodizio</div>
-                    <div class="client-logo">Rodizio</div>
-                    <div class="client-logo">Rodizio</div>
-                    <div class="client-logo">Rodizio</div>
-                    <div class="client-logo">Rodizio</div>
+            <div class="hero-glow-bg"></div>
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <div class="badge hero-badge">
+                        <span class="badge-pulse"></span>
+                        <span>Disponibles para nuevos proyectos</span>
+                        <i data-lucide="sparkles" class="badge-icon"></i>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Desarrollo de Software <br>
+                        <span class="gradient-text">Rápido, Confiable</span> <br>
+                        y 100% a tu Medida
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Transformamos los retos de tu empresa en plataformas web, aplicaciones móviles y sistemas automatizados de alto impacto. 
+                        <strong>Comunicación directa, cero plantillas genéricas y entregas puntuales.</strong>
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary btn-lg">
+                            <span>Solicitar Asesoría Gratuita</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#cotizador" class="btn btn-secondary btn-lg">
+                            <i data-lucide="calculator"></i>
+                            <span>Calcular Presupuesto</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Bar Badges -->
+                    <div class="hero-trust">
+                        <div class="trust-item">
+                            <i data-lucide="shield-check" class="trust-icon text-emerald"></i>
+                            <span>Propiedad 100% del Código</span>
+                        </div>
+                        <div class="trust-item">
+                            <i data-lucide="clock" class="trust-icon text-blue"></i>
+                            <span>Entregas Semanales</span>
+                        </div>
+                        <div class="trust-item">
+                            <i data-lucide="award" class="trust-icon text-indigo"></i>
+                            <span>30 Días de Garantía Post-Lanzamiento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Hero Mockup -->
+                <div class="hero-visual">
+                    <div class="mockup-window">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <div class="mockup-title-bar">
+                                <i data-lucide="lock" class="lock-icon"></i>
+                                <span>app.techsolutions.cloud/dashboard</span>
+                            </div>
+                            <div class="mockup-status">
+                                <span class="status-indicator"></span>
+                                <span>Online</span>
+                            </div>
+                        </div>
+
+                        <div class="mockup-body">
+                            <!-- Mockup Tab Selector -->
+                            <div class="mockup-tabs">
+                                <button class="mockup-tab active" data-tab="panel">
+                                    <i data-lucide="layout-dashboard"></i> Panel Activo
+                                </button>
+                                <button class="mockup-tab" data-tab="metricas">
+                                    <i data-lucide="trending-up"></i> Rendimiento
+                                </button>
+                                <button class="mockup-tab" data-tab="seguridad">
+                                    <i data-lucide="shield"></i> Seguridad
+                                </button>
+                            </div>
+
+                            <!-- Tab 1: Panel Activo -->
+                            <div class="mockup-tab-content active" id="tab-panel">
+                                <div class="mockup-kpis">
+                                    <div class="kpi-card">
+                                        <span class="kpi-label">Procesos Optimizados</span>
+                                        <span class="kpi-value text-blue">+86.4%</span>
+                                        <span class="kpi-trend">↑ En los últimos 30 días</span>
+                                    </div>
+                                    <div class="kpi-card">
+                                        <span class="kpi-label">Tiempo de Respuesta</span>
+                                        <span class="kpi-value text-emerald">0.28s</span>
+                                        <span class="kpi-trend">⚡ Alta velocidad</span>
+                                    </div>
+                                </div>
+                                <div class="mockup-chart-box">
+                                    <div class="chart-header">
+                                        <span>Eficiencia Operativa en Vivo</span>
+                                        <span class="badge-sm badge-green">En Tiempo Real</span>
+                                    </div>
+                                    <div class="chart-bars">
+                                        <div class="bar-col"><div class="bar-fill" style="height: 45%;"></div><span>Lun</span></div>
+                                        <div class="bar-col"><div class="bar-fill" style="height: 60%;"></div><span>Mar</span></div>
+                                        <div class="bar-col"><div class="bar-fill" style="height: 80%;"></div><span>Mié</span></div>
+                                        <div class="bar-col"><div class="bar-fill" style="height: 70%;"></div><span>Jue</span></div>
+                                        <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span>Vie</span></div>
+                                        <div class="bar-col"><div class="bar-fill active" style="height: 100%;"></div><span>Hoy</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 2: Rendimiento -->
+                            <div class="mockup-tab-content" id="tab-metricas">
+                                <div class="metrics-list">
+                                    <div class="metric-row">
+                                        <span>Disponibilidad del Sistema (Uptime)</span>
+                                        <strong class="text-emerald">99.98%</strong>
+                                    </div>
+                                    <div class="progress-line"><div class="progress-bar" style="width: 99.98%;"></div></div>
+
+                                    <div class="metric-row">
+                                        <span>Puntuación Google Lighthouse</span>
+                                        <strong class="text-emerald">98 / 100</strong>
+                                    </div>
+                                    <div class="progress-line"><div class="progress-bar" style="width: 98%;"></div></div>
+
+                                    <div class="metric-row">
+                                        <span>Seguridad de Datos & SSL</span>
+                                        <strong class="text-blue">Grado A+</strong>
+                                    </div>
+                                    <div class="progress-line"><div class="progress-bar" style="width: 100%;"></div></div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 3: Seguridad -->
+                            <div class="mockup-tab-content" id="tab-seguridad">
+                                <div class="security-check-grid">
+                                    <div class="sec-item">
+                                        <i data-lucide="check-circle-2" class="text-emerald"></i>
+                                        <div>
+                                            <strong>Cifrado de extremo a extremo</strong>
+                                            <p>Protocolos HTTPS y TLS 1.3 certificados</p>
+                                        </div>
+                                    </div>
+                                    <div class="sec-item">
+                                        <i data-lucide="check-circle-2" class="text-emerald"></i>
+                                        <div>
+                                            <strong>Copias de respaldo diarias</strong>
+                                            <p>Restauración en minutos ante emergencias</p>
+                                        </div>
+                                    </div>
+                                    <div class="sec-item">
+                                        <i data-lucide="check-circle-2" class="text-emerald"></i>
+                                        <div>
+                                            <strong>Sin dependencias ocultas</strong>
+                                            <p>Código limpio, modular y documentado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating interactive badges -->
+                        <div class="floating-badge badge-top-right">
+                            <div class="float-icon bg-emerald">
+                                <i data-lucide="check"></i>
+                            </div>
+                            <div class="float-text">
+                                <span class="float-label">Entrega a Tiempo</span>
+                                <span class="float-sub">Garantía 100%</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom-left">
+                            <div class="float-icon bg-blue">
+                                <i data-lucide="zap"></i>
+                            </div>
+                            <div class="float-text">
+                                <span class="float-label">Rápida Adopción</span>
+                                <span class="float-sub">+140% Productividad</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="sobre-nosotros" class="about">
+        <!-- Continuous Client / Partners Infinite Marquee -->
+        <section class="clients-marquee-section">
             <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Sobre Nosotros</h2>
-                        <p>Somos una agencia comprometida con la <strong>rapidez</strong> y la <strong>responsabilidad</strong>. Entendemos que cada negocio es único, por eso no usamos plantillas genéricas; desarrollamos sistemas base a lo que cada cliente pide.</p>
-                        <p>Creemos que el éxito de un proyecto radica en la <strong>comunicación constante</strong>. Trabajamos de la mano contigo para resolver dudas, realizar ajustes y asegurar que el sistema final no solo cumpla, sino supere tus expectativas.</p>
-                        <ul class="about-features">
-                            <li>✔️ Desarrollo rápido y ágil</li>
-                            <li>✔️ Sistemas hechos 100% a medida</li>
-                            <li>✔️ Comunicación clara y constante</li>
-                        </ul>
+                <p class="marquee-title">EMPRESAS Y EMPRENDEDORES QUE CONFÍAN EN NUESTRO SOFTWARE</p>
+            </div>
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="marquee-item"><i data-lucide="utensils" class="marquee-icon"></i> Restaurante Rodizio</div>
+                    <div class="marquee-item"><i data-lucide="truck" class="marquee-icon"></i> LogiTrans Express</div>
+                    <div class="marquee-item"><i data-lucide="store" class="marquee-icon"></i> Distribuidora Andina</div>
+                    <div class="marquee-item"><i data-lucide="activity" class="marquee-icon"></i> MedikApp Salud</div>
+                    <div class="marquee-item"><i data-lucide="building-2" class="marquee-icon"></i> Inversiones Norte</div>
+                    <div class="marquee-item"><i data-lucide="credit-card" class="marquee-icon"></i> PayFlow Connect</div>
+                    
+                    <!-- Duplicated for seamless loop -->
+                    <div class="marquee-item"><i data-lucide="utensils" class="marquee-icon"></i> Restaurante Rodizio</div>
+                    <div class="marquee-item"><i data-lucide="truck" class="marquee-icon"></i> LogiTrans Express</div>
+                    <div class="marquee-item"><i data-lucide="store" class="marquee-icon"></i> Distribuidora Andina</div>
+                    <div class="marquee-item"><i data-lucide="activity" class="marquee-icon"></i> MedikApp Salud</div>
+                    <div class="marquee-item"><i data-lucide="building-2" class="marquee-icon"></i> Inversiones Norte</div>
+                    <div class="marquee-item"><i data-lucide="credit-card" class="marquee-icon"></i> PayFlow Connect</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats / Trust Counters Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="45">+45</div>
+                        <div class="stat-label">Proyectos Entregados con Éxito</div>
+                        <p class="stat-desc">Sistemas actualmente operando en producción.</p>
                     </div>
-                    <div class="about-image">
-                        <div class="image-placeholder">Imagen de equipo/oficina</div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="99.4">99.4%</div>
+                        <div class="stat-label">Entregas a Tiempo</div>
+                        <p class="stat-desc">Planificación rigurosa mediante metodologías ágiles.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="100">100%</div>
+                        <div class="stat-label">Propiedad del Código</div>
+                        <p class="stat-desc">Sin tarifas de licenciamiento ocultas ni ataduras.</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="30">30 Días</div>
+                        <div class="stat-label">Soporte y Garantía Total</div>
+                        <p class="stat-desc">Acompañamiento post-lanzamiento sin costo extra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">SERVICIOS DE ALTO NIVEL</span>
+                    <h2>Soluciones Tecnológicas Diseñadas para tu Negocio</h2>
+                    <p>No creemos en soluciones genéricas. Desarrollamos herramientas que resuelven exactamente los cuellos de botella de tu operación diaria.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon-box bg-blue-subtle">
+                            <i data-lucide="globe" class="service-icon text-blue"></i>
+                        </div>
+                        <h3>Desarrollo Web & Plataformas SaaS</h3>
+                        <p>Sitios y aplicaciones web de alto impacto, ultra-rápidos, seguros y con diseño intuitivo para maximizar ventas y conversiones.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Arquitectura moderna y escalable</li>
+                            <li><i data-lucide="check"></i> Paneles de administración a medida</li>
+                            <li><i data-lucide="check"></i> Optimización SEO técnica y velocidad extrema</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            <span>Cotizar desarrollo web</span>
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon-box bg-emerald-subtle">
+                            <i data-lucide="smartphone" class="service-icon text-emerald"></i>
+                        </div>
+                        <h3>Aplicaciones Móviles (iOS & Android)</h3>
+                        <p>Lleva tu negocio al smartphone de tus clientes o equipo con apps fluidas, intuitivas y optimizadas para cualquier dispositivo.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Experiencia de usuario nativa y fluida</li>
+                            <li><i data-lucide="check"></i> Notificaciones push inteligentes</li>
+                            <li><i data-lucide="check"></i> Modo sin conexión y sincronización de datos</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            <span>Cotizar app móvil</span>
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon-box bg-indigo-subtle">
+                            <i data-lucide="database" class="service-icon text-indigo"></i>
+                        </div>
+                        <h3>Sistemas de Gestión & Inventario (ERP)</h3>
+                        <p>Controla existencias, ventas, compras, despachos y reportes financieros en tiempo real con interfaces fáciles para tu personal.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Control multi-sucursal en la nube</li>
+                            <li><i data-lucide="check"></i> Trazabilidad completa de stock y caja</li>
+                            <li><i data-lucide="check"></i> Reportes automatizados para gerencia</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            <span>Cotizar sistema ERP</span>
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon-box bg-amber-subtle">
+                            <i data-lucide="cpu" class="service-icon text-amber"></i>
+                        </div>
+                        <h3>Automatización & Conexión de APIs</h3>
+                        <p>Elimina horas de trabajo manual conectando tus sistemas con WhatsApp, pasarelas de pago, facturación electrónica y CRM.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Integración con pasarelas de pago</li>
+                            <li><i data-lucide="check"></i> Notificaciones automáticas por WhatsApp</li>
+                            <li><i data-lucide="check"></i> Reducción drástica de errores humanos</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            <span>Cotizar automatizaciones</span>
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Cost & Project Estimator (Cotizador Interactivo) -->
+        <section id="cotizador" class="estimator-section">
+            <div class="container">
+                <div class="estimator-wrapper">
+                    <div class="estimator-header">
+                        <div class="badge badge-accent">
+                            <i data-lucide="calculator"></i>
+                            <span>Herramienta Interactiva</span>
+                        </div>
+                        <h2>Calcula el Estimado de tu Proyecto</h2>
+                        <p>Selecciona los módulos que necesitas y obtén una estimación inmediata de tiempo y enfoque técnico.</p>
+                    </div>
+
+                    <div class="estimator-body">
+                        <!-- Step 1: Type of project -->
+                        <div class="estimator-step">
+                            <label class="step-label">1. ¿Qué tipo de solución buscas?</label>
+                            <div class="option-grid" id="projectTypeGrid">
+                                <button type="button" class="option-card active" data-type="web" data-days="15" data-base="Sitio Web Profesional / Corporativo">
+                                    <i data-lucide="layout"></i>
+                                    <strong>Sitio Web / Plataforma</strong>
+                                    <span>Presencia digital rápida, responsive y moderna</span>
+                                </button>
+                                <button type="button" class="option-card" data-type="ecommerce" data-days="25" data-base="Tienda Online / E-Commerce">
+                                    <i data-lucide="shopping-cart"></i>
+                                    <strong>Tienda Online / Catálogo</strong>
+                                    <span>Ventas en línea con pagos integrados</span>
+                                </button>
+                                <button type="button" class="option-card" data-type="mobile" data-days="35" data-base="Aplicación Móvil iOS/Android">
+                                    <i data-lucide="smartphone"></i>
+                                    <strong>App Móvil (iOS & Android)</strong>
+                                    <span>Aplicación instalable para clientes o staff</span>
+                                </button>
+                                <button type="button" class="option-card" data-type="erp" data-days="30" data-base="Sistema de Gestión / ERP a Medida">
+                                    <i data-lucide="layers"></i>
+                                    <strong>Software / Sistema a Medida</strong>
+                                    <span>Gestión interna de pedidos, inventario o datos</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Features -->
+                        <div class="estimator-step">
+                            <label class="step-label">2. Funcionalidades adicionales requeridas:</label>
+                            <div class="checkbox-grid" id="featuresGrid">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" value="Panel de Control Administrativo" data-add-days="5" checked>
+                                    <span class="custom-check"><i data-lucide="check"></i></span>
+                                    <div>
+                                        <strong>Panel de Administración</strong>
+                                        <span>Gestiona contenidos y usuarios fácilmente</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" value="Pasarela de Pagos (Tarjeta / Transferencia)" data-add-days="6" checked>
+                                    <span class="custom-check"><i data-lucide="check"></i></span>
+                                    <div>
+                                        <strong>Pasarela de Pagos Segura</strong>
+                                        <span>Cobros automáticos en moneda local o USD</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" value="Integración con WhatsApp y Notificaciones" data-add-days="4">
+                                    <span class="custom-check"><i data-lucide="check"></i></span>
+                                    <div>
+                                        <strong>Alertas por WhatsApp / Correo</strong>
+                                        <span>Mensajes automáticos a tus clientes</span>
+                                    </div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" value="Módulo de Reportes & Exportación Excel" data-add-days="4">
+                                    <span class="custom-check"><i data-lucide="check"></i></span>
+                                    <div>
+                                        <strong>Reportes Avanzados & Métricas</strong>
+                                        <span>Gráficos y descarga de datos en Excel/PDF</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Estimator Result Card -->
+                        <div class="estimator-result-card">
+                            <div class="result-info">
+                                <span class="result-tag">ESTIMACIÓN ESTIMADA</span>
+                                <h3 id="estimatedSummaryTitle">Sitio Web Profesional / Corporativo</h3>
+                                <p id="estimatedFeaturesList">Con Panel de Administración y Pasarela de Pagos Segura.</p>
+                                <div class="result-badges">
+                                    <div class="res-badge">
+                                        <i data-lucide="clock" class="text-blue"></i>
+                                        <span>Tiempo Estimado: <strong id="estimatedDeliveryDays">26 días hábiles</strong></span>
+                                    </div>
+                                    <div class="res-badge">
+                                        <i data-lucide="shield-check" class="text-emerald"></i>
+                                        <span>Garantía: <strong>30 días incluídos</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="result-cta">
+                                <button type="button" id="btnApplyEstimation" class="btn btn-primary btn-lg">
+                                    <span>Solicitar Propuesta Formal con esta Configuración</span>
+                                    <i data-lucide="arrow-right"></i>
+                                </button>
+                                <span class="result-note">Sin ningún compromiso ni costo inicial.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,86 +503,615 @@
         <section id="portafolio" class="portfolio">
             <div class="container">
                 <div class="section-header">
-                    <h2>Nuestro Portafolio</h2>
-                    <p>Conoce algunos de los proyectos que hemos hecho realidad.</p>
+                    <span class="section-tag">CASOS DE ÉXITO REALES</span>
+                    <h2>Proyectos que Transformaron Negocios</h2>
+                    <p>Diseñados desde cero con código limpio, enfocados en velocidad, seguridad y retornos medibles para nuestros clientes.</p>
                 </div>
+
+                <!-- Portfolio Category Filter Tabs -->
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">Todos los Proyectos</button>
+                    <button class="filter-btn" data-filter="web">Web & Plataformas</button>
+                    <button class="filter-btn" data-filter="mobile">Apps Móviles</button>
+                    <button class="filter-btn" data-filter="custom">Sistemas de Gestión</button>
+                </div>
+
                 <div class="portfolio-grid">
-                    <div class="portfolio-card">
-                        <div class="portfolio-image">
-                            <div class="image-placeholder">Screenshot Rodizio</div>
+                    <!-- Project 1: Restaurante Rodizio -->
+                    <div class="portfolio-card" data-category="web" data-modal="rodizio">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Restaurante Rodizio Plataforma Web" class="portfolio-img" loading="lazy">
+                            <div class="portfolio-badge">Caso Destacado</div>
+                            <div class="portfolio-overlay">
+                                <span class="btn-overlay"><i data-lucide="eye"></i> Ver Detalles del Proyecto</span>
+                            </div>
                         </div>
-                        <div class="portfolio-info">
+                        <div class="portfolio-content">
+                            <div class="portfolio-meta">
+                                <span class="category-pill">Web & Gastronomía</span>
+                                <span class="location-pill"><i data-lucide="map-pin"></i> Cúcuta, Colombia</span>
+                            </div>
                             <h3>Restaurante Rodizio</h3>
-                            <p>Plataforma web personalizada para un reconocido restaurante en Cúcuta, optimizando su presencia online y reservas.</p>
-                            <a href="#" class="btn-primary" style="margin-top: 1rem; padding: 0.5rem 1rem;">Ver Proyecto</a>
+                            <p>Plataforma web premium con sistema interactivo de reservas en tiempo real, carta digital y módulo de gestión de mesas.</p>
+                            
+                            <div class="portfolio-metrics">
+                                <div class="metric-mini">
+                                    <strong>+65%</strong>
+                                    <span>Reservas Online</span>
+                                </div>
+                                <div class="metric-mini">
+                                    <strong>-40%</strong>
+                                    <span>Tiempos de Espera</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>PostgreSQL</span>
+                                <span>Tailwind CSS</span>
+                            </div>
+
+                            <button class="btn btn-outline btn-full btn-view-project" data-modal="rodizio">
+                                <span>Ver Ficha Técnica</span>
+                                <i data-lucide="external-link"></i>
+                            </button>
                         </div>
                     </div>
-                    <!-- More items can be added here -->
+
+                    <!-- Project 2: LogiStock Pro ERP -->
+                    <div class="portfolio-card" data-category="custom" data-modal="logistock">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Sistema LogiStock ERP Inventario" class="portfolio-img" loading="lazy">
+                            <div class="portfolio-badge">ERP a Medida</div>
+                            <div class="portfolio-overlay">
+                                <span class="btn-overlay"><i data-lucide="eye"></i> Ver Detalles del Proyecto</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-meta">
+                                <span class="category-pill">Software de Gestión</span>
+                                <span class="location-pill"><i data-lucide="building"></i> LogiTrans Express</span>
+                            </div>
+                            <h3>LogiStock Pro - Sistema de Inventario</h3>
+                            <p>Software en la nube para sincronización de inventarios, despachos multi-bodega y escaneo de códigos de barras en tiempo real.</p>
+                            
+                            <div class="portfolio-metrics">
+                                <div class="metric-mini">
+                                    <strong>10k+</strong>
+                                    <span>SKUs Monitoreados</span>
+                                </div>
+                                <div class="metric-mini">
+                                    <strong>0%</strong>
+                                    <span>Pérdidas de Stock</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tags">
+                                <span>Vue.js</span>
+                                <span>Python FastAPI</span>
+                                <span>MySQL</span>
+                                <span>Docker</span>
+                            </div>
+
+                            <button class="btn btn-outline btn-full btn-view-project" data-modal="logistock">
+                                <span>Ver Ficha Técnica</span>
+                                <i data-lucide="external-link"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: MedikApp Móvil -->
+                    <div class="portfolio-card" data-category="mobile" data-modal="medikapp">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="MedikApp Aplicación Móvil" class="portfolio-img" loading="lazy">
+                            <div class="portfolio-badge">App Móvil</div>
+                            <div class="portfolio-overlay">
+                                <span class="btn-overlay"><i data-lucide="eye"></i> Ver Detalles del Proyecto</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-meta">
+                                <span class="category-pill">Salud & Móvil</span>
+                                <span class="location-pill"><i data-lucide="smartphone"></i> iOS & Android</span>
+                            </div>
+                            <h3>MedikApp - Agendamiento Médico</h3>
+                            <p>Aplicación móvil intuitiva para agendar consultas, historial clínico digital y recordatorios automáticos por WhatsApp.</p>
+                            
+                            <div class="portfolio-metrics">
+                                <div class="metric-mini">
+                                    <strong>18k+</strong>
+                                    <span>Citas Procesadas</span>
+                                </div>
+                                <div class="metric-mini">
+                                    <strong>4.9★</strong>
+                                    <span>Calificación App</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tags">
+                                <span>Flutter</span>
+                                <span>Firebase</span>
+                                <span>WhatsApp API</span>
+                                <span>Cloud Functions</span>
+                            </div>
+
+                            <button class="btn btn-outline btn-full btn-view-project" data-modal="medikapp">
+                                <span>Ver Ficha Técnica</span>
+                                <i data-lucide="external-link"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: PayFlow Connect -->
+                    <div class="portfolio-card" data-category="custom" data-modal="payflow">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="PayFlow Connect Pasarela de Pagos" class="portfolio-img" loading="lazy">
+                            <div class="portfolio-badge">Fintech API</div>
+                            <div class="portfolio-overlay">
+                                <span class="btn-overlay"><i data-lucide="eye"></i> Ver Detalles del Proyecto</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-meta">
+                                <span class="category-pill">Automatización</span>
+                                <span class="location-pill"><i data-lucide="shield"></i> Seguridad Bancaria</span>
+                            </div>
+                            <h3>PayFlow - Conciliación Financiera</h3>
+                            <p>Módulo automatizado de cobros recurrentes y conciliación bancaria instantánea para empresas de servicios por suscripción.</p>
+                            
+                            <div class="portfolio-metrics">
+                                <div class="metric-mini">
+                                    <strong>100%</strong>
+                                    <span>Automatizado</span>
+                                </div>
+                                <div class="metric-mini">
+                                    <strong>-15h</strong>
+                                    <span>Semanales de Trabajo</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-tags">
+                                <span>Node.js</span>
+                                <span>Stripe / Wompi</span>
+                                <span>Redis</span>
+                                <span>PostgreSQL</span>
+                            </div>
+
+                            <button class="btn btn-outline btn-full btn-view-project" data-modal="payflow">
+                                <span>Ver Ficha Técnica</span>
+                                <i data-lucide="external-link"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="servicios" class="services">
+        <!-- Process / Methodology Section (Generates Trust & Security) -->
+        <section id="metodologia" class="methodology-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Nuestros Servicios</h2>
-                    <p>Soluciones tecnológicas integrales adaptadas a las necesidades específicas de tu empresa.</p>
+                    <span class="section-tag">METODOLOGÍA TRANSPARENTE</span>
+                    <h2>Cómo Desarrollamos tu Proyecto Paso a Paso</h2>
+                    <p>Sabemos que invertir en software genera dudas. Por eso trabajamos con entregas continuas, comunicación semanal y garantías formales.</p>
                 </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="icon">💻</div>
-                        <h3>Desarrollo Web a Medida</h3>
-                        <p>Creamos sitios y plataformas web rápidas, seguras y escalables, diseñadas exactamente como las necesitas.</p>
+
+                <div class="process-timeline">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-badge">1</div>
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i data-lucide="message-square" class="text-blue"></i>
+                            </div>
+                            <h3>1. Diagnóstico & Asesoría Inicial</h3>
+                            <p>Nos reunimos contigo para entender a fondo tu negocio, los problemas a resolver y el alcance técnico exacto. Te entregamos un plan claro y un presupuesto fijo sin sorpresas.</p>
+                            <span class="step-highlight">✓ Consulta 100% Gratuita & NDA</span>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="icon">⚙️</div>
-                        <h3>Automatización de Procesos</h3>
-                        <p>Optimizamos el tiempo de tu equipo automatizando tareas repetitivas mediante software inteligente.</p>
+
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="step-badge">2</div>
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i data-lucide="palette" class="text-emerald"></i>
+                            </div>
+                            <h3>2. Prototipo & Diseño UI/UX</h3>
+                            <p>Antes de codificar, creamos los planos interactivos de cómo se verá y comportará tu aplicación. Tú pruebas y apruebas cada pantalla para asegurar que cumple tu visión.</p>
+                            <span class="step-highlight">✓ Visualizas el resultado final antes</span>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="icon">📱</div>
-                        <h3>Aplicaciones Móviles</h3>
-                        <p>Lleva tu negocio al bolsillo de tus clientes con apps intuitivas para iOS y Android.</p>
+
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="step-badge">3</div>
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i data-lucide="code" class="text-indigo"></i>
+                            </div>
+                            <h3>3. Desarrollo Ágil con Demos Semanales</h3>
+                            <p>Programamos en sprints semanales. Cada semana te mostramos avances funcionales reales en un entorno de pruebas privado para que pruebes el software en vivo.</p>
+                            <span class="step-highlight">✓ Cero incertidumbre, ves avances cada semana</span>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="icon">📦</div>
-                        <h3>Sistemas de Inventario</h3>
-                        <p>Controla tu stock, ventas y finanzas en tiempo real con sistemas precisos y fáciles de usar.</p>
+
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="step-badge">4</div>
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i data-lucide="check-check" class="text-amber"></i>
+                            </div>
+                            <h3>4. Pruebas de Carga & Calidad (QA)</h3>
+                            <p>Sometemos el sistema a rigurosas pruebas de seguridad, velocidad y respuesta bajo múltiples dispositivos para asegurar un rendimiento impecable sin caídas.</p>
+                            <span class="step-highlight">✓ Cero errores críticos al lanzamiento</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="process-step">
+                        <div class="step-badge">5</div>
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i data-lucide="rocket" class="text-emerald"></i>
+                            </div>
+                            <h3>5. Lanzamiento, Capacitación & Soporte</h3>
+                            <p>Publicamos el sistema en servidores seguros de alta disponibilidad, capacitamos a tu equipo de trabajo y te brindamos 30 días de garantía y soporte técnico directo.</p>
+                            <span class="step-highlight">✓ Acompañamiento post-lanzamiento garantizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="sobre-nosotros" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-visual">
+                        <div class="about-image-card">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Equipo de desarrollo TechSolutions" class="about-main-img">
+                            <div class="experience-badge">
+                                <span class="badge-big-number">+5</span>
+                                <span class="badge-text">Años creando tecnología a medida</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-text-content">
+                        <span class="section-tag">NUESTRA IDENTIDAD</span>
+                        <h2>Más que Programadores, tus Socios Tecnológicos</h2>
+                        <p class="lead-text">
+                            En <strong>TechSolutions</strong> entendemos que el código es solo una herramienta: el verdadero objetivo es que tu negocio ahorre tiempo, aumente ingresos y opere sin fricciones.
+                        </p>
+                        <p>
+                            No usamos plantillas prediseñadas ni soluciones 'parche'. Diseñamos y construimos sistemas a medida que se integran con tu forma de trabajar, no al revés.
+                        </p>
+
+                        <div class="trust-commitments">
+                            <div class="commitment-item">
+                                <div class="com-icon"><i data-lucide="check-circle-2" class="text-emerald"></i></div>
+                                <div>
+                                    <strong>Comunicación Clara y Directa</strong>
+                                    <p>Hablas directamente con ingenieros, sin intermediarios ni tecnicismos confusos.</p>
+                                </div>
+                            </div>
+                            <div class="commitment-item">
+                                <div class="com-icon"><i data-lucide="check-circle-2" class="text-emerald"></i></div>
+                                <div>
+                                    <strong>Propiedad Absoluta del Proyecto</strong>
+                                    <p>Al finalizar el proyecto, el código fuente, la base de datos y los accesos son 100% tuyos.</p>
+                                </div>
+                            </div>
+                            <div class="commitment-item">
+                                <div class="com-icon"><i data-lucide="check-circle-2" class="text-emerald"></i></div>
+                                <div>
+                                    <strong>Acuerdo de Confidencialidad (NDA)</strong>
+                                    <p>Protegemos la confidencialidad de tu modelo de negocio e información sensible por escrito.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-cta-box">
+                            <a href="#contacto" class="btn btn-primary">
+                                <span>Conocer al Equipo y Asesorarme</span>
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">RECOMENDACIONES REALES</span>
+                    <h2>Lo que Dicen Quienes Ya Trabajan con Nosotros</h2>
+                    <p>La confianza se construye con resultados verificables y relaciones de largo plazo.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1: Rodizio -->
+                    <div class="testimonial-card featured">
+                        <div class="testimonial-stars">
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Trabajar con TechSolutions transformó por completo la experiencia de nuestros clientes en el restaurante. La plataforma de reservas online y pedidos en mesa redujo los tiempos de espera a la mitad. Cumplieron con las fechas pactadas y siempre están atentos a nuestras consultas."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar bg-amber-subtle">
+                                <span>CM</span>
+                            </div>
+                            <div class="author-info">
+                                <strong>Carlos Mendoza</strong>
+                                <span>Director de Operaciones · Restaurante Rodizio Cúcuta</span>
+                                <span class="badge-verified"><i data-lucide="badge-check"></i> Cliente Verificado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2: Logística -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Buscábamos un equipo serio para automatizar el control de nuestro inventario y despacho. Firmamos acuerdo de confidencialidad y cada semana nos mostraban avances reales. El sistema no ha tenido una sola falla en producción."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar bg-blue-subtle">
+                                <span>MV</span>
+                            </div>
+                            <div class="author-info">
+                                <strong>Ing. Marcela Vega</strong>
+                                <span>Gerente de Logística · LogiTrans Express</span>
+                                <span class="badge-verified"><i data-lucide="badge-check"></i> Cliente Verificado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3: Salud -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                            <i data-lucide="star" class="star filled"></i>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Nos desarrollaron la aplicación móvil desde cero. La comunicación fue diaria y transparente. Lo que más valoro es que te asesoran con honestidad sobre lo que conviene y lo que no. El soporte post-lanzamiento ha sido excepcional."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar bg-emerald-subtle">
+                                <span>AS</span>
+                            </div>
+                            <div class="author-info">
+                                <strong>Dr. Alejandro Silva</strong>
+                                <span>Fundador · MedikApp Salud</span>
+                                <span class="badge-verified"><i data-lucide="badge-check"></i> Cliente Verificado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">PREGUNTAS FRECUENTES</span>
+                    <h2>Resolvemos tus Dudas con Total Claridad</h2>
+                    <p>Queremos que tomes tu decisión con completa tranquilidad y sin vacíos de información.</p>
+                </div>
+
+                <div class="faq-accordion" id="faqAccordion">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item active">
+                        <button class="faq-question" aria-expanded="true">
+                            <span>¿Cuánto tiempo toma desarrollar un proyecto a medida?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>El tiempo exacto depende del alcance: un sitio web profesional o landing de alta conversión suele tomar entre <strong>2 a 3 semanas</strong>, mientras que un sistema web de gestión o una aplicación móvil compleja suele requerir entre <strong>5 a 8 semanas</strong>. Desde el día 1 te entregamos un cronograma detallado con fechas fijas.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿El código y el sistema serán 100% de mi propiedad?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Sí, totalmente.</strong> A diferencia de las plataformas cerradas donde pagas de por vida o te retienen tu información, con nosotros el código fuente, la base de datos y todos los accesos son de tu propiedad una vez completado el proyecto.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Qué garantía tengo si surge algún error tras el lanzamiento?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Incluimos <strong>30 días de garantía y soporte técnico gratuito</strong> después de la salida a producción. Si se presenta cualquier desajuste o error respecto a lo acordado, lo solucionamos de inmediato sin costo adicional. Además, ofrecemos planes de mantenimiento mensual opcionales para mejoras continuas.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Cómo garantizan la seguridad y confidencialidad de mi idea o datos?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Firmamos un <strong>Acuerdo de No Divulgación y Confidencialidad (NDA)</strong> antes de comenzar cualquier intercambio de información sensible. Además, implementamos estándares bancarios de seguridad en el código: cifrado SSL/TLS, contraseñas hasheadas y protección contra inyecciones SQL y ataques comunes.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Cómo son los esquemas y formas de pago?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Trabajamos típicamente bajo un esquema por hitos: <strong>50% al inicio</strong> para comenzar la fase de diseño y arquitectura, y <strong>50% contra entrega y satisfacción final</strong>. Para proyectos de mayor envergadura podemos estructurar pagos en 3 o 4 hitos según las entregas de cada sprint.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contacto" class="contact">
+        <section id="contacto" class="contact-section">
             <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <h2>¡Hablemos de tu proyecto!</h2>
-                        <p>Estamos listos para transformar tus ideas en realidad. Déjanos un mensaje y te contactaremos a la brevedad.</p>
-                        <div class="info-item">
-                            <span class="icon">📧</span> contacto@techsolutions.com
+                <div class="contact-card-wrapper">
+                    <!-- Left Side: Trust & Info -->
+                    <div class="contact-info-panel">
+                        <span class="badge badge-light">
+                            <i data-lucide="sparkles"></i>
+                            <span>Conversemos Hoy Mismo</span>
+                        </span>
+                        <h2>¡Haz Realidad el Sistema que tu Negocio Necesita!</h2>
+                        <p class="contact-lead">
+                            Cuéntanos tu idea o el problema que buscas resolver. Te responderemos en menos de 2 horas hábiles con una propuesta inicial y diagnóstico sin costo.
+                        </p>
+
+                        <div class="contact-trust-points">
+                            <div class="trust-point">
+                                <div class="tp-icon"><i data-lucide="shield-check"></i></div>
+                                <div>
+                                    <strong>Acuerdo de Confidencialidad (NDA)</strong>
+                                    <span>Tu propiedad intelectual está 100% protegida.</span>
+                                </div>
+                            </div>
+                            <div class="trust-point">
+                                <div class="tp-icon"><i data-lucide="clock"></i></div>
+                                <div>
+                                    <strong>Respuesta Garantizada en < 2 Horas</strong>
+                                    <span>Atención directa y personalizada por WhatsApp o correo.</span>
+                                </div>
+                            </div>
+                            <div class="trust-point">
+                                <div class="tp-icon"><i data-lucide="check-circle-2"></i></div>
+                                <div>
+                                    <strong>Diagnóstico Técnico Sin Costo</strong>
+                                    <span>Evaluamos la viabilidad y mejores tecnologías para tu caso.</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <span class="icon">📞</span> +57 (300) 000-0000
+
+                        <div class="direct-channels">
+                            <a href="mailto:contacto@techsolutions.com" class="channel-link">
+                                <div class="channel-icon bg-blue-light"><i data-lucide="mail"></i></div>
+                                <div>
+                                    <span class="ch-label">Correo Electrónico Directo</span>
+                                    <span class="ch-val">contacto@techsolutions.com</span>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/573000000000?text=Hola%20TechSolutions,%20deseo%20cotizar%20un%20proyecto" target="_blank" rel="noopener noreferrer" class="channel-link">
+                                <div class="channel-icon bg-emerald-light"><i data-lucide="message-circle"></i></div>
+                                <div>
+                                    <span class="ch-label">WhatsApp Directo</span>
+                                    <span class="ch-val">+57 (300) 000-0000</span>
+                                </div>
+                            </a>
+
+                            <div class="channel-link no-click">
+                                <div class="channel-icon bg-indigo-light"><i data-lucide="map-pin"></i></div>
+                                <div>
+                                    <span class="ch-label">Sede Principal</span>
+                                    <span class="ch-val">Cúcuta, Colombia · Atención Remota Global</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-form">
-                        <form action="#" method="POST">
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" required placeholder="Tu nombre">
+
+                    <!-- Right Side: Interactive Form -->
+                    <div class="contact-form-panel">
+                        <div class="form-header">
+                            <h3>Solicitar Propuesta y Presupuesto</h3>
+                            <p>Completa el formulario y recibe respuesta hoy mismo.</p>
+                        </div>
+
+                        <form id="contactForm" class="styled-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="clientName">Nombre Completo <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i data-lucide="user" class="input-icon"></i>
+                                        <input type="text" id="clientName" name="name" placeholder="Ej. Juan Pérez" required>
+                                    </div>
+                                    <span class="error-msg" id="nameError">Por favor ingresa tu nombre</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="clientPhone">Teléfono / WhatsApp <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i data-lucide="phone" class="input-icon"></i>
+                                        <input type="tel" id="clientPhone" name="phone" placeholder="Ej. +57 300 123 4567" required>
+                                    </div>
+                                    <span class="error-msg" id="phoneError">Ingresa un número válido</span>
+                                </div>
                             </div>
+
                             <div class="form-group">
-                                <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                                <label for="clientEmail">Correo Electrónico <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i data-lucide="mail" class="input-icon"></i>
+                                    <input type="email" id="clientEmail" name="email" placeholder="tu@empresa.com" required>
+                                </div>
+                                <span class="error-msg" id="emailError">Por favor ingresa un correo válido</span>
                             </div>
+
                             <div class="form-group">
-                                <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" rows="4" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                                <label for="serviceType">¿En qué servicio estás interesado?</label>
+                                <div class="input-with-icon">
+                                    <i data-lucide="briefcase" class="input-icon"></i>
+                                    <select id="serviceType" name="service">
+                                        <option value="desarrollo-web">Desarrollo Web & Plataformas SaaS</option>
+                                        <option value="app-movil">Aplicación Móvil (iOS & Android)</option>
+                                        <option value="sistema-erp">Sistema de Inventario / ERP a Medida</option>
+                                        <option value="automatizacion">Automatización de Procesos & APIs</option>
+                                        <option value="otro">Otro tipo de software a medida</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button type="submit" class="btn-primary">Enviar Mensaje</button>
+
+                            <div class="form-group">
+                                <label for="clientMessage">Cuéntanos sobre tu proyecto <span class="required">*</span></label>
+                                <textarea id="clientMessage" name="message" rows="4" placeholder="Describe brevemente qué necesitas desarrollar, qué problema buscas resolver o qué funciones principales imaginas..." required></textarea>
+                                <span class="error-msg" id="messageError">Por favor escribe una breve descripción</span>
+                            </div>
+
+                            <div class="form-agreement">
+                                <label class="checkbox-simple">
+                                    <input type="checkbox" id="ndaCheck" checked>
+                                    <span>Solicito firma de Acuerdo de Confidencialidad (NDA) antes de detallar información sensible.</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" id="btnSubmitForm" class="btn btn-primary btn-full btn-lg">
+                                <span class="btn-text">Enviar Solicitud de Proyecto</span>
+                                <i data-lucide="send" class="btn-icon"></i>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -170,28 +1120,112 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#">TechSolutions<span>.</span></a>
-                    <p>Desarrollo rápido, a medida y responsable.</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#inicio" class="logo footer-logo">
+                        <div class="logo-icon">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <span>TechSolutions<span class="logo-dot">.</span></span>
+                    </a>
+                    <p class="brand-desc">
+                        Desarrollo de software rápido, moderno y a medida. Creamos herramientas digitales robustas que potencian y automatizan empresas en toda Latinoamérica.
+                    </p>
+                    <div class="security-stamp">
+                        <i data-lucide="shield-check" class="text-emerald"></i>
+                        <span>Desarrollo Seguro & Código Propietario</span>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Enlaces</h4>
+
+                <div class="footer-nav-col">
+                    <h4>Navegación</h4>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#cotizador">Cotizador Interactivo</a></li>
                         <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#metodologia">Cómo Trabajamos</a></li>
                     </ul>
                 </div>
+
+                <div class="footer-nav-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Desarrollo Web & SaaS</a></li>
+                        <li><a href="#servicios">Aplicaciones Móviles</a></li>
+                        <li><a href="#servicios">Sistemas de Inventario</a></li>
+                        <li><a href="#servicios">Automatización & APIs</a></li>
+                        <li><a href="#contacto">Auditoría de Código</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4>Contacto Rápido</h4>
+                    <p class="footer-contact-item"><i data-lucide="mail"></i> contacto@techsolutions.com</p>
+                    <p class="footer-contact-item"><i data-lucide="phone"></i> +57 (300) 000-0000</p>
+                    <p class="footer-contact-item"><i data-lucide="map-pin"></i> Cúcuta, Norte de Santander, Colombia</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn" class="social-btn"><i data-lucide="linkedin"></i></a>
+                        <a href="#" aria-label="GitHub" class="social-btn"><i data-lucide="github"></i></a>
+                        <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-btn"><i data-lucide="message-circle"></i></a>
+                    </div>
+                </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 TechSolutions. Todos los derechos reservados.</p>
+                <p>&copy; 2026 TechSolutions. Todos los derechos reservados. Desarrollado con excelencia y rapidez.</p>
+                <div class="footer-legal">
+                    <a href="#faq">Garantías</a>
+                    <span>·</span>
+                    <a href="#faq">Acuerdo de Confidencialidad</a>
+                    <span>·</span>
+                    <a href="#contacto">Contacto</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/573000000000?text=Hola%20TechSolutions!%20Me%20interesa%20cotizar%20un%20proyecto%20de%20software." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-floating-btn" 
+       aria-label="Contactar por WhatsApp">
+        <span class="whatsapp-tooltip">¡Hablemos de tu proyecto! 👋</span>
+        <div class="whatsapp-pulse"></div>
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12.031 2C6.51 2 2.016 6.495 2.016 12.016c0 1.83.493 3.553 1.353 5.044L2 22.031l5.127-1.344c1.44.795 3.09 1.246 4.904 1.246 5.521 0 10.016-4.495 10.016-10.016C22.047 6.495 17.552 2 12.031 2zm5.834 14.288c-.244.686-1.42 1.258-1.956 1.334-.516.072-1.189.103-3.413-.817-2.659-1.098-4.364-3.805-4.496-3.98-.133-.176-1.077-1.433-1.077-2.733 0-1.3 1.077-1.94 1.458-2.203.228-.158.5-.228.799-.228.098 0 .195.005.286.01.272.015.408.036.589.47.228.547.781 1.905.85 2.045.068.14.113.305.023.483-.09.177-.136.286-.272.443-.136.158-.286.353-.408.473-.136.136-.277.284-.12.553.158.27.702 1.157 1.507 1.874 1.037.925 1.91 1.213 2.182 1.348.272.136.43.114.589-.068.158-.182.68-793.861-1.066.182-.272.363-.227.612-.136.249.09 1.587.747 1.859.883.272.136.453.204.521.317.068.113.068.657-.176 1.343z"/>
+        </svg>
+    </a>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Modal for Project Details -->
+    <div id="projectModal" class="project-modal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar ventana">&times;</button>
+            <div class="modal-body" id="modalContent">
+                <!-- Content will be injected dynamically by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toastNotification" class="toast-notification">
+        <div class="toast-icon">
+            <i data-lucide="check-circle-2" class="text-emerald"></i>
+        </div>
+        <div class="toast-text">
+            <strong id="toastTitle">¡Mensaje Enviado con Éxito!</strong>
+            <span id="toastMsg">Te contactaremos en menos de 2 horas hábiles.</span>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
