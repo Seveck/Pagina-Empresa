@@ -379,6 +379,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    function escapeHTML(str) {
+        if (typeof str !== 'string') return str;
+        return str.replace(/[&<>'"]/g, function(tag) {
+            const charsToReplace = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            };
+            return charsToReplace[tag] || tag;
+        });
+    }
+
     function openProjectModal(projectId) {
         const data = projectData[projectId];
         if (!data || !modalContent) return;
@@ -386,25 +400,25 @@ document.addEventListener('DOMContentLoaded', () => {
         modalContent.innerHTML = `
             <div class="modal-project-header">
                 <div class="modal-meta">
-                    <span class="category-pill">${data.subtitle}</span>
-                    <span class="location-pill"><i data-lucide="map-pin"></i> ${data.location}</span>
+                    <span class="category-pill">${escapeHTML(data.subtitle)}</span>
+                    <span class="location-pill"><i data-lucide="map-pin"></i> ${escapeHTML(data.location)}</span>
                 </div>
-                <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem; color: #0f172a;">${data.title}</h2>
-                <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.2rem;"><strong>Cliente:</strong> ${data.client}</p>
+                <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem; color: #0f172a;">${escapeHTML(data.title)}</h2>
+                <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.2rem;"><strong>Cliente:</strong> ${escapeHTML(data.client)}</p>
             </div>
 
             <div style="border-radius: 12px; overflow: hidden; height: 260px; margin-bottom: 1.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="${escapeHTML(data.image)}" alt="${escapeHTML(data.title)}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
 
             <div class="modal-challenge-grid">
                 <div style="background: #f8fafc; padding: 1.2rem; border-radius: 10px; border: 1px solid #e2e8f0;">
                     <strong style="color: #0f172a; display: block; margin-bottom: 0.5rem; font-size: 1rem;">🎯 El Desafío</strong>
-                    <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${data.challenge}</p>
+                    <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${escapeHTML(data.challenge)}</p>
                 </div>
                 <div style="background: #f8fafc; padding: 1.2rem; border-radius: 10px; border: 1px solid #e2e8f0;">
                     <strong style="color: #0f172a; display: block; margin-bottom: 0.5rem; font-size: 1rem;">💡 Nuestra Solución</strong>
-                    <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${data.solution}</p>
+                    <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${escapeHTML(data.solution)}</p>
                 </div>
             </div>
 
@@ -414,14 +428,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${data.results.map(r => `
                         <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; color: #1e293b;">
                             <i data-lucide="check-circle-2" class="text-emerald" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
-                            <span>${r}</span>
+                            <span>${escapeHTML(r)}</span>
                         </li>
                     `).join('')}
                 </ul>
             </div>
 
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
-                ${data.tech.map(t => `<span style="background: #eff6ff; color: #2563eb; font-weight: 600; font-size: 0.8rem; padding: 0.3rem 0.8rem; border-radius: 6px;">${t}</span>`).join('')}
+                ${data.tech.map(t => `<span style="background: #eff6ff; color: #2563eb; font-weight: 600; font-size: 0.8rem; padding: 0.3rem 0.8rem; border-radius: 6px;">${escapeHTML(t)}</span>`).join('')}
             </div>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -532,6 +546,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            const honeypot = document.getElementById('formHoneypot');
+            if (honeypot && honeypot.value !== '') {
+                // Silently abort if honeypot is filled
+                return;
+            }
+
             const nameInput = document.getElementById('clientName');
             const phoneInput = document.getElementById('clientPhone');
             const emailInput = document.getElementById('clientEmail');
@@ -551,11 +571,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+            const privacyCheck = document.getElementById('privacyCheck');
+            const privacyError = document.getElementById('privacyError');
+
             checkField(nameInput, nameInput.value.trim().length >= 2);
             checkField(phoneInput, phoneInput.value.trim().length >= 7);
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             checkField(emailInput, emailRegex.test(emailInput.value.trim()));
             checkField(messageInput, messageInput.value.trim().length >= 5);
+
+            if (privacyCheck && !privacyCheck.checked) {
+                isValid = false;
+                if (privacyError) privacyError.style.display = 'block';
+            } else if (privacyError) {
+                privacyError.style.display = 'none';
+            }
 
             if (isValid) {
                 const originalText = btnSubmit.innerHTML;

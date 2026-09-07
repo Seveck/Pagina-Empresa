@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="description" content="TechSolutions - Desarrollo de software rápido, profesional y 100% a medida. Creamos aplicaciones web, móviles y sistemas de gestión de alto rendimiento.">
     <title>TechSolutions | Desarrollo de Software a Medida, Rápido y Confiable</title>
     
@@ -11,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons -->
+    <script src="js/vendor/lucide.min.js"></script>
     
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -1052,6 +1055,7 @@
                         </div>
 
                         <form id="contactForm" class="styled-form" novalidate>
+                            <input type="text" name="website_hp" id="formHoneypot" tabindex="-1" autocomplete="off">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="clientName">Nombre Completo <span class="required">*</span></label>
@@ -1106,6 +1110,13 @@
                                     <input type="checkbox" id="ndaCheck" checked>
                                     <span>Solicito firma de Acuerdo de Confidencialidad (NDA) antes de detallar información sensible.</span>
                                 </label>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="checkbox-label" style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer; font-size: 0.85rem; color: var(--text-muted);">
+                                    <input type="checkbox" id="privacyCheck" required style="margin-top: 0.25rem;">
+                                    <span>Acepto la <a href="/politica-de-privacidad" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline;">Política de Tratamiento de Datos Personales</a> conforme a la Ley 1581 de 2012. <span class="required">*</span></span>
+                                </label>
+                                <span class="error-msg" id="privacyError">Debes aceptar la política de privacidad</span>
                             </div>
 
                             <button type="submit" id="btnSubmitForm" class="btn btn-primary btn-full btn-lg">
@@ -1167,8 +1178,8 @@
                     <p class="footer-contact-item"><i data-lucide="phone"></i> +57 (300) 000-0000</p>
                     <p class="footer-contact-item"><i data-lucide="map-pin"></i> Cúcuta, Norte de Santander, Colombia</p>
                     <div class="social-links">
-                        <a href="#" aria-label="LinkedIn" class="social-btn"><i data-lucide="linkedin"></i></a>
-                        <a href="#" aria-label="GitHub" class="social-btn"><i data-lucide="github"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-btn"><i data-lucide="linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-btn"><i data-lucide="github"></i></a>
                         <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-btn"><i data-lucide="message-circle"></i></a>
                     </div>
                 </div>
@@ -1180,6 +1191,8 @@
                     <a href="#faq">Garantías</a>
                     <span>·</span>
                     <a href="#faq">Acuerdo de Confidencialidad</a>
+                    <span>·</span>
+                    <a href="/politica-de-privacidad" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
                     <span>·</span>
                     <a href="#contacto">Contacto</a>
                 </div>

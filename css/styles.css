@@ -2229,6 +2229,14 @@ header.scrolled {
     font-size: 0.95rem;
 }
 
+#formHoneypot {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+    height: 0;
+    width: 0;
+}
+
 .styled-form {
     display: flex;
     flex-direction: column;
