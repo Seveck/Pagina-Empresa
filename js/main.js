@@ -17,27 +17,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const backToTopBtn = document.getElementById('backToTop');
 
-    // Header scroll effect & Back to top visibility
+    // Header scroll effect & Back to top visibility (Throttled with requestAnimationFrame)
+    let isScrollTicking = false;
     window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY;
+        if (!isScrollTicking) {
+            window.requestAnimationFrame(() => {
+                const scrollPos = window.scrollY;
 
-        // Sticky header class
-        if (scrollPos > 40) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+                // Sticky header class
+                if (header) {
+                    header.classList.toggle('scrolled', scrollPos > 40);
+                }
+
+                // Back to top button
+                if (backToTopBtn) {
+                    backToTopBtn.classList.toggle('visible', scrollPos > 450);
+                }
+
+                // Active link scroll spy
+                highlightActiveNavLink(scrollPos);
+                isScrollTicking = false;
+            });
+            isScrollTicking = true;
         }
-
-        // Back to top button
-        if (scrollPos > 450) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
-        }
-
-        // Active link scroll spy
-        highlightActiveNavLink();
-    });
+    }, { passive: true });
 
     // Back to top click
     if (backToTopBtn) {
@@ -77,21 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Highlight nav link based on scroll position
-    function highlightActiveNavLink() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollY = window.pageYOffset;
-
-        sections.forEach(current => {
+    const navSections = document.querySelectorAll('section[id]');
+    function highlightActiveNavLink(scrollY = window.scrollY) {
+        navSections.forEach(current => {
             const sectionHeight = current.offsetHeight;
             const sectionTop = current.offsetTop - 120;
             const sectionId = current.getAttribute('id');
 
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
+                    const isMatch = link.getAttribute('href') === `#${sectionId}`;
+                    link.classList.toggle('active', isMatch);
                 });
             }
         });
@@ -293,12 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             portfolioCards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    card.style.display = 'flex';
-                    card.style.animation = 'fadeIn 0.3s ease';
-                } else {
-                    card.style.display = 'none';
-                }
+                const isMatch = filterValue === 'all' || category === filterValue;
+                card.classList.toggle('is-hidden', !isMatch);
             });
         });
     });
@@ -403,43 +398,43 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="category-pill">${escapeHTML(data.subtitle)}</span>
                     <span class="location-pill"><i data-lucide="map-pin"></i> ${escapeHTML(data.location)}</span>
                 </div>
-                <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem; color: #0f172a;">${escapeHTML(data.title)}</h2>
-                <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.2rem;"><strong>Cliente:</strong> ${escapeHTML(data.client)}</p>
+                <h2 class="modal-project-title">${escapeHTML(data.title)}</h2>
+                <p class="modal-client-meta"><strong>Cliente:</strong> ${escapeHTML(data.client)}</p>
             </div>
 
-            <div style="border-radius: 12px; overflow: hidden; height: 260px; margin-bottom: 1.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <img src="${escapeHTML(data.image)}" alt="${escapeHTML(data.title)}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="modal-image-wrapper">
+                <img src="${escapeHTML(data.image)}" alt="${escapeHTML(data.title)}" class="modal-image">
             </div>
 
             <div class="modal-challenge-grid">
-                <div style="background: #f8fafc; padding: 1.2rem; border-radius: 10px; border: 1px solid #e2e8f0;">
-                    <strong style="color: #0f172a; display: block; margin-bottom: 0.5rem; font-size: 1rem;">🎯 El Desafío</strong>
-                    <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${escapeHTML(data.challenge)}</p>
+                <div class="modal-challenge-card">
+                    <strong class="modal-challenge-title">🎯 El Desafío</strong>
+                    <p class="modal-challenge-text">${escapeHTML(data.challenge)}</p>
                 </div>
-                <div style="background: #f8fafc; padding: 1.2rem; border-radius: 10px; border: 1px solid #e2e8f0;">
-                    <strong style="color: #0f172a; display: block; margin-bottom: 0.5rem; font-size: 1rem;">💡 Nuestra Solución</strong>
-                    <p style="font-size: 0.9rem; color: #475569; line-height: 1.55;">${escapeHTML(data.solution)}</p>
+                <div class="modal-challenge-card">
+                    <strong class="modal-challenge-title">💡 Nuestra Solución</strong>
+                    <p class="modal-challenge-text">${escapeHTML(data.solution)}</p>
                 </div>
             </div>
 
-            <div style="margin-bottom: 1.8rem;">
-                <strong style="color: #0f172a; display: block; margin-bottom: 0.8rem; font-size: 1.05rem;">📈 Resultados Obtenidos:</strong>
-                <ul style="display: flex; flex-direction: column; gap: 0.6rem;">
+            <div class="modal-results-section">
+                <strong class="modal-results-title">📈 Resultados Obtenidos:</strong>
+                <ul class="modal-results-list">
                     ${data.results.map(r => `
-                        <li style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; color: #1e293b;">
-                            <i data-lucide="check-circle-2" class="text-emerald" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
+                        <li class="modal-result-item">
+                            <i data-lucide="check-circle-2" class="text-emerald"></i>
                             <span>${escapeHTML(r)}</span>
                         </li>
                     `).join('')}
                 </ul>
             </div>
 
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
-                ${data.tech.map(t => `<span style="background: #eff6ff; color: #2563eb; font-weight: 600; font-size: 0.8rem; padding: 0.3rem 0.8rem; border-radius: 6px;">${escapeHTML(t)}</span>`).join('')}
+            <div class="modal-tech-stack">
+                ${data.tech.map(t => `<span class="modal-tech-pill">${escapeHTML(t)}</span>`).join('')}
             </div>
 
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="#contacto" id="btnModalQuote" class="btn btn-primary btn-lg" style="flex: 1;">
+            <div class="modal-actions">
+                <a href="#contacto" id="btnModalQuote" class="btn btn-primary btn-lg">
                     <span>Quiero un Proyecto Similar</span>
                     <i data-lucide="arrow-right"></i>
                 </a>
@@ -452,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         projectModal.classList.add('active');
         projectModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('modal-open');
 
         // Modal quote button listener
         const btnModalQuote = document.getElementById('btnModalQuote');
@@ -471,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (projectModal) {
             projectModal.classList.remove('active');
             projectModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
+            document.body.classList.remove('modal-open');
         }
     }
 
@@ -580,11 +575,14 @@ document.addEventListener('DOMContentLoaded', () => {
             checkField(emailInput, emailRegex.test(emailInput.value.trim()));
             checkField(messageInput, messageInput.value.trim().length >= 5);
 
-            if (privacyCheck && !privacyCheck.checked) {
-                isValid = false;
-                if (privacyError) privacyError.style.display = 'block';
-            } else if (privacyError) {
-                privacyError.style.display = 'none';
+            if (privacyCheck) {
+                const isPrivacyChecked = privacyCheck.checked;
+                if (!isPrivacyChecked) {
+                    isValid = false;
+                }
+                if (privacyError) {
+                    privacyError.classList.toggle('is-visible', !isPrivacyChecked);
+                }
             }
 
             if (isValid) {
